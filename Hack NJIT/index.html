@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OceanRide</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     
+</head>
+<body>
+
+    <header>
+        <a href = "#" class="brand">Ocean</a>
+        <div class="menu-btn"></div>
+
+        <div class="navigation">
+        <div class="navigation-items">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Explore</a>
+            <a href="#">Gallery</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+    </header>
+
+    <section class="home">
+        <video class="videoslides" src="ocean.mp4" autoplay muted loop>
+
+        </video>
+        <div class="content">
+        <h1>Beautiful<br><span>Ocean</span> </h1>   
+        <p>Lorem ipsum dolor sit amet, connisi velit, eu hendrerit dui pulvinar sed. Curabitur nisl nisi, laoreet a orci sed, ultrices consectetur quam. Etiam rutrum quis felis sed egestas. Aliquam vehicula sem eget enim semper, sed luctus ligula interdum. Nulla quis faucibus diam. Etiam vehicula massa ut lorem dignissim, id faucibus est congue. In eu quam enim. Duis aliquet tellus eu scelerisque pulvinar. Curabitur sit amet molestie leo. Nunc consectetur diam in nisl laoreet sollicitudin. In auctor, tellus at lobortis egestas, est neque sagittis lorem, et aliquet orci erat non ipsum. Sed auctor dui ante, nec scelerisque tellus ultrices et. Curabitur varius purus ac mauris pulvinar, ut vulputate dui feugiat. 
+        </p>
+        <a href="#">Read More</a>
+        </div>
+        <div class="media-icons">
+            <a href="#"><i class="fa fa-facebook"></i></a> 
+            <a href="#"><i class="fa fa-instagram"></i></a> 
+            <a href="#"><i class="fa fa-twitter"></i></a> 
+        </div>
+    </section>
+
+    <script type="text/javascript">
+
+        const menuBtn = document.querySelector(".menu-btn");
+        const navigation = document.querySelector(".navigation");
+
+
+        menuBtn.addEventListener("click", () => {
+            menuBtn.classList.toggle("active")
+            navigation.classList.toggle("active")
+
+        });
+
+    </script>
+    
+    
+</body>
+</html>
