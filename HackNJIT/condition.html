@@ -52,6 +52,11 @@
             font-size: 20px; /* Larger font size for the result */
             margin-top: 20px;
             text-align: center; /* Center text within the container */
+            color: #fff; /* Set text color to white */
+        }
+
+        .button-container {
+            margin-top: 20px;
         }
 
         button {
@@ -61,15 +66,17 @@
             padding: 12px 24px; /* Increased padding for the button */
             border-radius: 50px;
             cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
         button:hover {
             background-color: #0056b3;
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
-    <video id="video-background" autoplay loop muted>
+    <video id="video-background" autoplay loop muted onclick="goToIndex()">
         <source src="coast.mp4" type="video/mp4">
     </video>
 
@@ -78,9 +85,16 @@
         <input type="text" id="city" placeholder="Enter city name">
         <button onclick="getWeather()">Get Weather</button>
         <div id="weather"></div>
+        <div class="button-container">
+            <button onclick="goToIndex()">Home</button>
+        </div>
     </div>
 
     <script>
+        function goToIndex() {
+            window.location.href = "index.html";
+        }
+
         function getWeather() {
             const apiKey = '259d2d7d0d89295336d8538e2471bb5f'; // Replace with your OpenWeatherMap API key
             const city = document.getElementById('city').value;

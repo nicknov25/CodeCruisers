@@ -6,9 +6,9 @@
     <title>OceanRide</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bubbles.css"> <!-- Include the CSS file for the cursor bubbles -->
 </head>
 <body>
-
 <header>
     <a href="#" class="brand">Aqua Ride</a>
     <div class="menu-btn"></div>
@@ -22,16 +22,16 @@
         </div>
     </div>
 </header>
-
 <section class="home">
     <video class="videoslides" src="ocean.mp4" autoplay muted loop></video>
     <div class="content">
-        <h1>SURFING<br><span>Waves</span></h1>
+        <h1>NAVIGATING<br><span>Waves</span></h1>
         <p>Lorem ipsum dolor sit amet, connisi velit, eu hendrerit dui pulvinar sed. Curabitur nisl nisi, laoreet a orci sed, ultrices consectetur quam...</p>
         <div class="cta-buttons">
-            <a href="#" class="btn small-btn">Read More</a>
-            <a href="../HackNJIT/Login/log.html" class="btn small-btn">Login</a>
-            <a href="condition.html" class="btn small-btn">Sign Up</a> <!-- Open the weather widget on this button click -->
+            <a href="health.html" class="btn small-btn">Health</a>
+            <a href="login2.html" class="btn small-btn">Login</a>
+            <a href="condition.html" class="btn small-btn">Around You</a> <!-- Open the weather widget on this button click -->
+            <a href="ride.html" class="btn small-btn">Sails</a> <!-- New "Sails" button -->
         </div>
     </div>
     <div class="media-icons">
@@ -43,7 +43,7 @@
         <div class="nav-btn active"></div>
     </div>
 </section>
-
+<div class="bubbles-container" id="bubbles-container"></div> <!-- Container for the cursor bubbles -->
 <script type="text/javascript">
     // JavaScript for responsive navigation menu
     const menuBtn = document.querySelector(".menu-btn");
@@ -55,24 +55,37 @@
     });
 
     // JavaScript for slider navigation
-    // JavaScript for slider navigation
-const btns = document.querySelectorAll(".nav-btn");
+    const btns = document.querySelectorAll(".nav-btn");
 
-var sliderNav = function(manual) {
-    btns.forEach((btn) => {
-        btn.classList.remove("active");
+    var sliderNav = function(manual) {
+        btns.forEach((btn) => {
+            btn.classList.remove("active");
+        });
+
+        btns[manual].classList add("active");
+    }
+
+    btns.forEach((btn, i) => {
+        btn.addEventListener("click", () => {
+            sliderNav(i);
+        });
     });
 
-    btns[manual].classList.add("active");
-}
+    // JavaScript for cursor bubbles effect
+    const bubblesContainer = document.getElementById('bubbles-container');
 
-btns.forEach((btn, i) => {
-    btn.addEventListener("click", () => {
-        sliderNav(i);
+    document.addEventListener('mousemove', (e) => {
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble';
+        bubble.style.left = e.pageX + 'px';
+        bubble.style.top = e.pageY + 'px';
+        bubblesContainer.appendChild(bubble);
+
+        // Remove the bubble element after its animation is completed
+        bubble.addEventListener('animationiteration', () => {
+            bubble.remove();
+        });
     });
-});
-
 </script>
-
 </body>
 </html>

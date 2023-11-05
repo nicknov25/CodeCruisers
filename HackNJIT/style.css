@@ -315,3 +315,34 @@ section{
     padding: 10px 20px; /* Define a specific padding for small buttons */
     font-size: 0.9em; /* Define a specific font size for small buttons */
 }
+
+
+
+.bubbles-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow interaction with elements beneath the bubbles */
+  }
+  
+  .bubble {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(0, 0, 255, 0.5); /* Blue bubbles with some transparency */
+    border-radius: 50%;
+    transform-origin: center;
+    animation: bubble 3s ease-in-out infinite;
+  }
+  
+  @keyframes bubble {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }
+  

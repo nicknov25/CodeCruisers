@@ -6,8 +6,13 @@ body{
     align-items: center;
     min-height: 100vh;
     font-family: 'Jost', sans-serif;
-    background: none;
+    background: url("coast.mp4" ) ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
+
+
 
 .main{
     display: flexbox;
@@ -105,3 +110,4 @@ button:hover{
 #chk:checked ~ .signup label{
     transform: scale(.6);
 }
+
