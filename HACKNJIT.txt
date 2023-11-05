@@ -1,4 +1,4 @@
 Team Name: Code Cruisers
 Team Members: Nicholas Agostino, Suman Sah, Sujan Thapa, Swapnil Deb
 Project name: Aqua Rides
-Site Name: aquarides.us
+Site Name: https://nicknov25.github.io/CodeCruisers/HackNJIT/
