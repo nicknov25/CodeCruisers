@@ -5,13 +5,22 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif; /* Use Roboto font */
-            background-image: url("2.jpg");
-            background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
+            overflow: hidden; /* Hide overflow to prevent scrolling */
+        }
+
+        #video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Place the video behind other content */
         }
 
         .container {
@@ -60,6 +69,10 @@
     </style>
 </head>
 <body>
+    <video id="video-background" autoplay loop muted>
+        <source src="coast.mp4" type="video/mp4">
+    </video>
+
     <div class="container">
         <h2>At your location now</h2>
         <input type="text" id="city" placeholder="Enter city name">

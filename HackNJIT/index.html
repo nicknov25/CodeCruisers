@@ -31,9 +31,8 @@
         <div class="cta-buttons">
             <a href="#" class="btn small-btn">Read More</a>
             <a href="../HackNJIT/Login/log.html" class="btn small-btn">Login</a>
-            <a href="#" class="btn small-btn">Sign Up</a>
+            <a href="condition.html" class="btn small-btn">Sign Up</a> <!-- Open the weather widget on this button click -->
         </div>
-        
     </div>
     <div class="media-icons">
         <a href="#"><i class="fa fa-facebook"></i></a>
@@ -56,21 +55,23 @@
     });
 
     // JavaScript for slider navigation
-    const btns = document.querySelectorAll(".nav-btn");
+    // JavaScript for slider navigation
+const btns = document.querySelectorAll(".nav-btn");
 
-    var sliderNav = function(manual) {
-        btns.forEach((btn) => {
-            btn.classList.remove("active");
-        });
-
-        btns[manual].classList.add("active");
-    }
-
-    btns.forEach((btn, i) => {
-        btn.addEventListener("click", () => {
-            sliderNav(i);
-        });
+var sliderNav = function(manual) {
+    btns.forEach((btn) => {
+        btn.classList.remove("active");
     });
+
+    btns[manual].classList.add("active");
+}
+
+btns.forEach((btn, i) => {
+    btn.addEventListener("click", () => {
+        sliderNav(i);
+    });
+});
+
 </script>
 
 </body>
