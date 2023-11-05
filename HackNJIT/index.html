@@ -27,6 +27,12 @@
 
     <section class="home">
         <video class="videoslides" src="ocean.mp4" autoplay muted loop>
+        <!-- <video class="videoslides" src="ocean1.mp4" autoplay muted loop>
+        <video class="videoslides" src="ocean2.mp4" autoplay muted loop>
+        <video class="videoslides" src="ocean3.mp4" autoplay muted loop>
+        <video class="videoslides" src="ocean4.mp4" autoplay muted loop> -->
+
+            
 
         </video>
         <div class="content">
@@ -40,10 +46,19 @@
             <a href="#"><i class="fa fa-instagram"></i></a> 
             <a href="#"><i class="fa fa-twitter"></i></a> 
         </div>
+        <div class="slider-navigation">
+            <div class="nav-btn active"></div>
+            <!-- <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div> -->
+        </div>
     </section>
 
     <script type="text/javascript">
 
+
+        //Javascript for responsive navigation menu
         const menuBtn = document.querySelector(".menu-btn");
         const navigation = document.querySelector(".navigation");
 
@@ -53,6 +68,31 @@
             navigation.classList.toggle("active")
 
         });
+
+        //Javascript for slider navigation
+        const btns = document.querySelectorAll(".nav-btn");
+        //const slides = document.querySelectorAll(".videoslides");
+
+
+        var sliderNav = function(manual){
+            btns.forEach((btn) => {
+                btn.classList.remove("active")
+            });
+
+           // slides.forEach((slide) => {
+           //     slide.classList.remove("active")
+          //  });
+
+            btns[manual].classList.add("active");
+           // slides[manual].classList.add("active");
+
+        }
+
+        btns.forEach((btn, i) => {
+            btn.addEventListener("click", () => {
+                sliderNav(i);
+            })
+        })
 
     </script>
     
