@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather at your location</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; /* Use Roboto font */
+            background-image: url("2.jpg");
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.15); /* Slightly reduced transparency */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Subtle drop shadow effect */
+            border-radius: 20px; /* Rounded corners */
+            padding: 20px;
+            text-align: center;
+            backdrop-filter: blur(8px) grayscale(20%) contrast(140%) brightness(85%); /* More grain and adjustments */
+            display: flex;
+            flex-direction: column; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+        }
+
+        .container h2 {
+            font-size: 28px; /* Slightly larger font size */
+            margin: 0;
+        }
+
+        #city {
+            width: 100%;
+            padding: 12px; /* Increased padding */
+            border: 1px solid #ccc;
+            border-radius: 50px;
+            margin: 20px 0;
+        }
+
+        #weather {
+            font-size: 20px; /* Larger font size for the result */
+            margin-top: 20px;
+            text-align: center; /* Center text within the container */
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px 24px; /* Increased padding for the button */
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>At your location now</h2>
+        <input type="text" id="city" placeholder="Enter city name">
+        <button onclick="getWeather()">Get Weather</button>
+        <div id="weather"></div>
+    </div>
+
+    <script>
+        function getWeather() {
+            const apiKey = '259d2d7d0d89295336d8538e2471bb5f'; // Replace with your OpenWeatherMap API key
+            const city = document.getElementById('city').value;
+            const weatherDiv = document.getElementById('weather');
+
+            if (city) {
+                fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const temperature = (data.main.temp - 273.15).toFixed(2);
+                        const description = data.weather[0].description;
+                        weatherDiv.innerHTML = `Weather in ${city}:<br>Description: ${description}<br>Temperature: ${temperature}°C`;
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        weatherDiv.innerHTML = 'City not found. Please try again.';
+                    });
+            } else {
+                weatherDiv.innerHTML = 'Please enter a city name.';
+            }
+        }
+    </script>
+</body>
+</html>
