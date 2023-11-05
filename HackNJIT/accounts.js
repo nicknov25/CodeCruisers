@@ -69,3 +69,4 @@ class Accounts{
         }
     }
 }
+module.exports.Accounts = Accounts;
